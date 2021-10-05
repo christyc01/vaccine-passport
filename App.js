@@ -13,13 +13,19 @@ import {
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [text, onChangeText] = React.useState("Useless Text");
+  const [text, onChangeText] = React.useState("");
   const qrValue = text;
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.headingText}>Vaccine Passport</Text>
       <Text style={styles.bigGerm}>🦠</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="Enter your name"
+      />
       <Modal
         animationType="slide"
         transparent={true}
@@ -53,21 +59,15 @@ export default function App() {
         style={styles.button}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.buttonText}>If you promise you've been vaccinated, click here for a secure QR code!</Text>
+        <Text style={styles.buttonText}>If you promise you've been vaccinated, click here for your personalized QR code!</Text>
       </Pressable>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="useless placeholder"
-      />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   bigGerm: {
-    fontSize: 300,
+    fontSize:250,
   },
   button: {
     backgroundColor: "#248800",
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     color: "white",
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: "bold",
   },
   centeredView: {
@@ -104,14 +104,16 @@ const styles = StyleSheet.create({
   headingText: {
     textAlign: "center",
     fontSize: 60,
-    padding: 0,
+    paddingTop: 20,
     fontWeight: "bold",
   },
   input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
+    margin: 10,
+    fontSize: 30,
+    borderWidth: 3,
+    borderColor: "#248800",
+    borderRadius: 50,
+    padding: 20,
   },
   modalText: {
     textAlign: "center",
