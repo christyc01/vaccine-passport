@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 60,
     padding: 0,
+    fontWeight: "bold",
   },
   modalText: {
     textAlign: "center",
@@ -110,10 +111,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 0
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
+    shadowOpacity: 1,
+    shadowRadius: 100,
     elevation: 5
   },
   pressableText: {
