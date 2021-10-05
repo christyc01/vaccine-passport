@@ -7,11 +7,14 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from "react-native";
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [text, onChangeText] = React.useState("Useless Text");
+  const qrValue = text;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,7 +37,7 @@ export default function App() {
                 source={{ 
                   width: 300,
                   height: 300,
-                  uri: "https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100"
+                  uri: `https://api.qrserver.com/v1/create-qr-code/?data=${qrValue}&amp;size=100x100`
                 }} 
                 /> 
             <Pressable
@@ -52,6 +55,12 @@ export default function App() {
       >
         <Text style={styles.buttonText}>If you promise you've been vaccinated, click here for a secure QR code!</Text>
       </Pressable>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="useless placeholder"
+      />
     </SafeAreaView>
   );
 }
@@ -97,6 +106,12 @@ const styles = StyleSheet.create({
     fontSize: 60,
     padding: 0,
     fontWeight: "bold",
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
   modalText: {
     textAlign: "center",
